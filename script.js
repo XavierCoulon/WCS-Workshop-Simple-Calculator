@@ -1,7 +1,8 @@
 const firstValue = document.getElementById("firstValue");
 const operator = document.getElementById("operator");
 const secondValue = document.getElementById("secondValue");
-const btn = document.querySelector("button");
+const btnCalculate = document.getElementById("btn-calculate");
+const btnGame = document.getElementById("btn-game");
 const textarea = document.querySelector("textarea");
 
 function simpleCalc(firstValue, operator, secondValue) {
@@ -25,7 +26,7 @@ function simpleCalc(firstValue, operator, secondValue) {
   }
 }
 
-btn.addEventListener("click", function (event) {
+btnCalculate.addEventListener("click", function (event) {
   event.preventDefault();
   const result = simpleCalc(
     parseInt(firstValue.value),
@@ -34,3 +35,39 @@ btn.addEventListener("click", function (event) {
   );
   textarea.value = result;
 });
+
+btnGame.addEventListener("click", function (event) {
+  event.preventDefault();
+  game();
+});
+
+function game() {
+  const random = Math.floor(Math.random() * 100) + 1;
+  const name = prompt("What is your name?");
+
+  let choice = prompt("What is your choice? (between 1 and 100)");
+
+  while (parseInt(choice) !== random) {
+    if (parseInt(choice) > random) {
+      choice = prompt("You're too up, try again:");
+    } else {
+      choice = prompt("You're too low, try again:");
+    }
+  }
+  alert(`Gagné ${name}, la valeur était ${random}.`);
+}
+
+// Option, using while true (preferred)
+// while (true) {
+//   const choice = prompt("What is your choice? (between 1 and 100)");
+//   if (choice > random) {
+//     alert("You're too up!");
+//   } else if (choice < random) {
+//     alert("You're too low!");
+//   } else if (choice === "q") {
+//     return false;
+//   } else {
+//     alert(`Gagné ${name}, la valeur était ${random}.`);
+//     return false;
+//   }
+// }
