@@ -3,6 +3,7 @@ const operator = document.getElementById("operator");
 const secondValue = document.getElementById("secondValue");
 const btnCalculate = document.getElementById("btn-calculate");
 const btnGame = document.getElementById("btn-game");
+const btnReset = document.getElementById("btn-reset");
 const textarea = document.querySelector("textarea");
 
 function simpleCalc(firstValue, operator, secondValue) {
@@ -36,9 +37,9 @@ btnCalculate.addEventListener("click", function (event) {
   textarea.value = result;
 });
 
-btnGame.addEventListener("click", function (event) {
+btnReset.addEventListener("click", function (event) {
   event.preventDefault();
-  game();
+  document.querySelectorAll("input").forEach((element) => (element.value = ""));
 });
 
 function game() {
@@ -55,6 +56,7 @@ function game() {
     }
   }
   alert(`Gagné ${name}, la valeur était ${random}.`);
+  document.querySelectorAll("input");
 }
 
 // Option, using while true (preferred)
