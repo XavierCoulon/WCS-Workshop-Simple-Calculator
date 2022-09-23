@@ -42,6 +42,11 @@ btnReset.addEventListener("click", function (event) {
   document.querySelectorAll("input").forEach((element) => (element.value = ""));
 });
 
+btnGame.addEventListener("click", function (event) {
+  event.preventDefault();
+  game();
+});
+
 function game() {
   const random = Math.floor(Math.random() * 100) + 1;
   const name = prompt("What is your name?");

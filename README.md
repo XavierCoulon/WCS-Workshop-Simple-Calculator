@@ -3,4 +3,4 @@
 Simple calculator in JS from this [exercise](JS_Simple_Calculator.pptx).
 Design not mandatory.
 
-+ game "The price is right".
+Additional script: game "The price is right".
